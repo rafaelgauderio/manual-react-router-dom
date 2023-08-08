@@ -1,9 +1,10 @@
 const Invoices = () => {
     return (
         <main style={{
-            padding: "1rem 0"
+            padding: "1rem 0",
+            margin: "20px"           
         }}>
-            <h2>Invoices</h2>
+            <h2>Invoices Page</h2>
         </main>
     );
 };
