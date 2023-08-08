@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -6,16 +6,20 @@ function App() {
   return (
     <>
       <h1>Tutorial projeto com a lib React Router DOM</h1>
-      <nav style={{
-        borderBottom: "1px solid black",
+      <nav style={{        
+        margin: "0",
         paddingBottom: "1rem",
-        marginLeft: "20px",
+        paddingTop: "1rem",
+        paddingLeft: "20px",       
         fontSize: "20px",
-        fontFamily: "Arial"
+        fontFamily: "Arial",
+        backgroundColor: "#add8e6"
       }}>
-        <Link to="/invoices">Invoices</Link> | {" "}
-        <Link to="/expenses">Expenses</Link>
+        <Link to="/invoices">Invoices</Link> | {"  "}
+        <Link to="/expenses">Expenses</Link> | {"  "}
+        <Link to="documents">Documents</Link>
       </nav>
+      <Outlet></Outlet>
     </>
   )
 }

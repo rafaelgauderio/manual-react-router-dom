@@ -1,4 +1,4 @@
-const Invoices = () => {
+export default function Documents () {
     return (
         <main style={{
             padding: "1rem 1rem",
@@ -7,9 +7,9 @@ const Invoices = () => {
             borderRadius: "10px",
             fontFamily: "Arial"
         }}>
-            <h2>Invoices Page</h2>
+            <h2>Documents Page</h2>
         </main>
     );
-};
+}
 
-export default Invoices;
+
