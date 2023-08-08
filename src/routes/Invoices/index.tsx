@@ -1,4 +1,10 @@
+import { Link } from "react-router-dom";
+import { getInvoices } from "../../data";
+
 const Invoices = () => {
+
+    const invoices = getInvoices();
+
     return (
         <main style={{
             padding: "1rem 1rem",
@@ -7,7 +13,30 @@ const Invoices = () => {
             borderRadius: "10px",
             fontFamily: "Arial"
         }}>
-            <h2>Invoices Page</h2>
+            <h2 style={{
+                margin: "10px",
+                textAlign: "left"
+            }}>Invoices</h2>
+            <div style={{
+                display: "flex"
+            }}>
+                <nav style={{
+                    borderRight: "1.5px solid black",
+                    padding: "1rem",                    
+                }}>
+                    {invoices.map((fatura) =>
+
+                    (<Link
+                        style={{ display: "block", margin: "1rem 1rem" }}
+                        to={`/invoices/${fatura.number}`}
+                        key={fatura.number}
+                    >
+                        {fatura.name}
+                    </Link>
+                    )
+                    )}
+                </nav>
+            </div>
         </main>
     );
 };
