@@ -4,12 +4,12 @@
 
 h1 {
   font-family: "Courier New", Courier, monospace;
-  text-align: center;
-  margin: 10px;
+  text-align: center;  
 }
 
-main {
+main, h1 {
   background-color: bisque;
+  padding: 20px;
 }
 
 h2 {

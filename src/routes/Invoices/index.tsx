@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { getInvoices } from "../../data";
 
 const Invoices = () => {
 
     const invoices = getInvoices();
 
-    return (
+    return (<>
         <main style={{
             padding: "1rem 1rem",
             margin: "20px",
@@ -22,7 +22,7 @@ const Invoices = () => {
             }}>
                 <nav style={{
                     borderRight: "1.5px solid black",
-                    padding: "1rem",                    
+                    padding: "1rem",
                 }}>
                     {invoices.map((fatura) =>
 
@@ -36,8 +36,12 @@ const Invoices = () => {
                     )
                     )}
                 </nav>
+                {/* sub route with data from each invoice*/}
+                <Outlet></Outlet>
             </div>
         </main>
+
+    </>
     );
 };
 
