@@ -15,6 +15,7 @@ function App() {
         fontFamily: "Arial",
         backgroundColor: "#add8e6"
       }}>
+        <Link to="/">Home</Link> | {"  "}
         <Link to="/invoices">Invoices</Link> | {"  "}
         <Link to="/expenses">Expenses</Link> | {"  "}
         <Link to="documents">Documents</Link>
