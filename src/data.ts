@@ -6,19 +6,19 @@ const invoices = [
         due: "12/05/1995",
     },
     {
-        name: "Stankonia",
+        name: "Claudia da Silva",
         number: 2000,
         amount: "8.000",
         due: "10/31/2000",
     },
     {
-        name: "Ocean Avenue",
+        name: "Luciana de Luca",
         number: 2003,
         amount: "9.500",
         due: "07/22/2003",
     },
     {
-        name: "Tubthumper",
+        name: "Carolina Almeida",
         number: 1997,
         amount: "14.000",
         due: "09/01/1997",
