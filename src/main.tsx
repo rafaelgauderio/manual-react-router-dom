@@ -8,12 +8,16 @@ import Documents from './routes/Documents/index.tsx'
 import NotFound from './routes/NotFound/index.tsx'
 import Invoice from './routes/Invoices/Invoice/index.tsx'
 import InvoicesDefault from './routes/Invoices/InvoicesDefault/index.tsx'
+import Welcome from './routes/Welcome/index.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App></App>}>
+          <Route
+            index
+            element={<Welcome></Welcome>} />
           <Route path="expenses" element={<Expenses></Expenses>} />
           <Route path="invoices" element={<Invoices></Invoices>}>
             <Route
