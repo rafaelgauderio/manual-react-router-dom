@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 import { getInvoices } from "../../data";
 import { NavLink } from "react-router-dom";
 import './styles.css';
@@ -6,6 +6,9 @@ import './styles.css';
 const Invoices = () => {
 
     const invoices = getInvoices();
+
+    // pega os parametros da url com parametros de busca
+    const [searchParams, setSearchParams] = useSearchParams();
 
     return (<>
         <main style={{
@@ -15,6 +18,19 @@ const Invoices = () => {
             borderRadius: "10px",
             fontFamily: "Arial"
         }}>
+
+            <input
+                placeholder="Inform the name"
+                value={searchParams.get("params") || ""}
+                onChange={(event) => {
+                    const params = event.target.value;
+                    if (params) {
+                        setSearchParams({ params });
+                    } else {
+                        setSearchParams({}); // senão tiver preenchido o parametro, setar para vazio
+                    }
+                }}></input>
+
             <h2 style={{
                 margin: "10px",
                 textAlign: "left"
@@ -26,19 +42,31 @@ const Invoices = () => {
                     borderRight: "1.5px solid black",
                     padding: "1rem",
                 }}>
-                    {invoices.map((fatura) =>
 
-                    (<NavLink
-                        className={
-                            ({ isActive}) => isActive ? "nav-active" : "nav-inactive"
-                        }
-                        to={`/invoices/${fatura.number}`}
-                        key={fatura.number}
-                    >
-                        {fatura.name}
-                    </NavLink>
-                    )
-                    )}
+
+                    {invoices
+                        .filter((fatura) => {
+                            const filter= searchParams.get("params");
+                            if (!filter) {
+                                return true;
+                            }
+                            const invoiceName = fatura.name.toLowerCase();                            
+                            return invoiceName.startsWith(filter.toLowerCase()) || invoiceName.endsWith(filter.toLowerCase());
+                        })
+
+                        .map((fatura) =>
+
+                        (<NavLink
+                            className={
+                                ({ isActive }) => isActive ? "nav-active" : "nav-inactive"
+                            }
+                            to={`/invoices/${fatura.number}`}
+                            key={fatura.number}
+                        >
+                            {fatura.name}
+                        </NavLink>
+                        )
+                        )}
                 </nav>
                 {/* sub route with data from each invoice*/}
                 <Outlet></Outlet>

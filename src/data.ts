@@ -1,16 +1,22 @@
 const invoices = [
     {
         name: "Rafael de Luca",
-        number: 1996,
+        number: 1995,
         amount: "10.800",
         due: "12/05/1995",
+    },
+    {
+        name: "Reginaldo Souza",
+        number: 1996,
+        amount: "90.800",
+        due: "12/05/1996",
     },
     {
         name: "Claudia da Silva",
         number: 2000,
         amount: "8.000",
         due: "10/31/2000",
-    },
+    },  
     {
         name: "Luciana de Luca",
         number: 2003,
