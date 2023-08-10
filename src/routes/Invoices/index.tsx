@@ -1,5 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { getInvoices } from "../../data";
+import { NavLink } from "react-router-dom";
+import './styles.css';
 
 const Invoices = () => {
 
@@ -26,13 +28,15 @@ const Invoices = () => {
                 }}>
                     {invoices.map((fatura) =>
 
-                    (<Link
-                        style={{ display: "block", margin: "1rem 1rem" }}
+                    (<NavLink
+                        className={
+                            ({ isActive}) => isActive ? "nav-active" : "nav-inactive"
+                        }
                         to={`/invoices/${fatura.number}`}
                         key={fatura.number}
                     >
                         {fatura.name}
-                    </Link>
+                    </NavLink>
                     )
                     )}
                 </nav>
