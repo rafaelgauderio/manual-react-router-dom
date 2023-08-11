@@ -51,7 +51,7 @@ const Invoices = () => {
                                 return true;
                             }
                             const invoiceName = fatura.name.toLowerCase();                            
-                            return invoiceName.startsWith(filter.toLowerCase()) || invoiceName.endsWith(filter.toLowerCase());
+                            return invoiceName.includes(filter.toLowerCase());
                         })
 
                         .map((fatura) =>
