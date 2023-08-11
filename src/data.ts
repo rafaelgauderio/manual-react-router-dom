@@ -1,4 +1,4 @@
-const invoices = [
+let invoices = [
     {
         name: "Rafael de Luca",
         number: 1995,
@@ -16,7 +16,7 @@ const invoices = [
         number: 2000,
         amount: "8.000",
         due: "10/31/2000",
-    },  
+    },
     {
         name: "Luciana de Luca",
         number: 2003,
@@ -30,10 +30,16 @@ const invoices = [
         due: "09/01/1997",
     },
     {
-        name: "Wide Open Spaces",
+        name: "Marlon da Silva",
         number: 1998,
         amount: "4.600",
         due: "01/27/1998",
+    },
+    {
+        name: "Paola da Luca",
+        number: 2006,
+        amount: "9.600",
+        due: "01/27/2006",
     },
 ];
 
@@ -44,5 +50,11 @@ export function getInvoices() {
 export function getInvoiceData(number: number) {
     return invoices.find((fatura) => (fatura.number === number)
 
+    );
+}
+
+export function deleteInvoice(invoiceNumber: number) {
+    invoices = invoices.filter(
+        (invoice) => invoice.number !== invoiceNumber
     );
 }

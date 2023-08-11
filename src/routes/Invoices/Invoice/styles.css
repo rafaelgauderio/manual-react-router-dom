@@ -1,3 +1,20 @@
 p {
     padding-top: 10px;
 }
+
+button {
+    height: 40px;
+    padding: 10px;   
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: red;  
+    font-size: 20px;
+    cursor: pointer;
+    transition: height .4s;
+}
+button:hover {
+    height: 60px;
+    font-size: 25px;
+   
+}
