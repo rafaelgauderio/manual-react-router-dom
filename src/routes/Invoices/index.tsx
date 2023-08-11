@@ -2,6 +2,7 @@ import { Outlet, useSearchParams } from "react-router-dom";
 import { getInvoices } from "../../data";
 import { NavLink } from "react-router-dom";
 import './styles.css';
+import QueryNavLink from "../../components/QueryNavLink";
 
 const Invoices = () => {
 
@@ -19,7 +20,9 @@ const Invoices = () => {
             fontFamily: "Arial"
         }}>
 
-            <input
+            <input style={{
+                border: "1px solid black"
+            }}                
                 placeholder="Inform the name"
                 value={searchParams.get("params") || ""}
                 onChange={(event) => {
@@ -46,25 +49,26 @@ const Invoices = () => {
 
                     {invoices
                         .filter((fatura) => {
-                            const filter= searchParams.get("params");
+                            const filter = searchParams.get("params");
                             if (!filter) {
                                 return true;
                             }
-                            const invoiceName = fatura.name.toLowerCase();                            
+                            const invoiceName = fatura.name.toLowerCase();
                             return invoiceName.includes(filter.toLowerCase());
                         })
 
                         .map((fatura) =>
 
-                        (<NavLink
+                        (<QueryNavLink
                             className={
-                                ({ isActive }) => isActive ? "nav-active" : "nav-inactive"
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                ({ isActive } : any) => isActive ? "nav-active" : "nav-inactive"
                             }
                             to={`/invoices/${fatura.number}`}
                             key={fatura.number}
                         >
                             {fatura.name}
-                        </NavLink>
+                        </QueryNavLink>
                         )
                         )}
                 </nav>
